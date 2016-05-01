@@ -110,7 +110,7 @@ void* act(void *dummy)
     else if(!lq.empty() //condition 2.a
        && dq.size() < 3 //condition 2.b
        &&  !(!dq.empty() && ((now.tv_sec - dq.front().rt.tv_sec) >= 10*sleep_time))//condition 2.c
-       || lq.size() > dq.size() //a 4th condition to disallow landing starvation by disallowing a longer landing queue than 
+       || lq.size() > dq.size() //a 4th condition to prevent landing starvation by disallowing existence of a longer landing queue than departure queue
        ) {
       plane p = lq.front();
       printf("Signaling for landing %d\n\n", p.id );
